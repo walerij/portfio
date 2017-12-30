@@ -1,0 +1,18 @@
+﻿@model IEnumerable<portfio.Models.Photos>
+@foreach (var photo in Model)
+{
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 thumbnail">
+        <img src="@photo.Link" />
+        <div>
+            <button type="submit" class="btn btn-info" title="Сделать главной"
+                    name="submitButton" value="MainPhoto_@photo.Id">
+                <i class="glyphicon glyphicon-home"></i>
+            </button>
+            <button type="submit" class="btn btn-danger" title="Удалить"
+                    name="submitButton" value="DeletePhoto_@photo.Id">
+                <i class="glyphicon glyphicon-remove"></i>
+            </button>
+        </div>
+    </div>
+}
+

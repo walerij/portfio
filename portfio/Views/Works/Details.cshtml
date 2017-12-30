@@ -1,0 +1,63 @@
+﻿@model portfio.Models.Works
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Работа</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.Topic.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic.Name)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Link)
+        </dt>
+
+        <dd>            
+            <img src="@Model.Link" alt="no" id="MainPhotoView" class="thumbnail" />
+        </dd>
+
+    </dl>
+    @using (Html.BeginForm("Upload","Works", FormMethod.Post, new {enctype="multipart/form-data" }))
+    {
+        <div class="row">
+            @Html.Action("ViewPhoto",Model.Id)
+        </div>
+
+
+        @Html.HiddenFor(work_id=>Model.Id)
+        <div class="row">
+            <input type="file" name="upload" /> <br />
+            <input type="submit" value="Загрузить" />
+        </div>
+    }
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

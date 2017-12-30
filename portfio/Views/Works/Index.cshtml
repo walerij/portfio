@@ -1,0 +1,37 @@
+﻿@model IEnumerable<portfio.Models.Works>
+@{
+    ViewBag.Title = "Работы";
+}
+
+<p>Страница работ</p>
+<p>@Html.ActionLink("Добавить","Create")</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model=>model.Title)</th>
+            <th>@Html.DisplayNameFor(model=>model.Info)</th>
+            <th>"------"</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var work in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modTitle=>work.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modInfo=>work.Info)
+                </td>
+                <td>
+                    @Html.ActionLink("Изменить","Edit", new {id= work.Id })
+                    @Html.ActionLink("Удалить", "Delete", new { id = work.Id })
+                    @Html.ActionLink("Фото", "Details", new { id = work.Id })
+                </td>
+            </tr>
+
+         }
+    </tbody>
+</table>

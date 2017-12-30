@@ -1,0 +1,52 @@
+﻿@model IEnumerable<portfio.Models.Works>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <div class="row">
+            <div class="jumbotron">
+                <h2>Портфолио Валерия</h2>
+                <p><strong>Портфолио мастера сетевых технологий</strong></p>
+                <p>Работы Валерия по asp.net и C#</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 clo-xs-1">
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Последние 6 работ</div>
+            <div class="panel-body">
+               @foreach(var work in Model)
+               { 
+                   <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="thumbnail">
+                        <a href="/Home/ViewWork/@work.Id">
+                            <img src="@work.Link" class="image_home" alt="picture" title="подробнее">
+                        </a>
+                        <h3>@work.Title</h3>
+                        <p>@work.Info</p>
+                    </div>
+                </div>
+               }
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 clo-xs-1"></div>
+
+</div>
+

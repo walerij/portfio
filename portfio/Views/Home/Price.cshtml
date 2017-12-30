@@ -1,0 +1,41 @@
+﻿@model IEnumerable<portfio.Models.Prices>
+@{
+    ViewBag.Title = "Price";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><i class="glyphicon glyphicon-hand-right"></i> &nbsp; Расценки</div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>                                
+                                <th>Наименование услуги</th>
+                                <th>Ед изм</th>
+                                <th>Цена <i class="glyphicon glyphicon-rub"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var Price_ in Model)
+                            { 
+                            <tr>                                
+                                <td>@Html.DisplayFor(name => Price_.Name)</td>
+                                <td>@Html.DisplayFor(unit => Price_.Unit)</td>
+                                <td>@Html.DisplayFor(price => Price_.Price)</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 clo-xs-1"></div>
+
+    </div>
+

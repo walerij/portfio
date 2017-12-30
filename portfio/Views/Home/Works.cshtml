@@ -1,0 +1,56 @@
+﻿@model IEnumerable<portfio.Models.Topics>
+@{
+    ViewBag.Title = "Works";
+}
+
+<div class="row">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Наши работы</div>
+            <div class="panel-body">
+
+                <ul class="nav nav-tabs">
+                  @foreach(var topic in Model)
+                  {
+                      if (topic.Id == ViewBag.TopicId)
+                      { <li class="active"><a href="/Home/Works/@topic.Id" title="@topic.Info">@topic.Name &nbsp; &nbsp;<span class="badge badge-primary">@topic.TopicWorks.Count</span></a></li>}
+
+                      else
+                      {
+                        <li><a href="/Home/Works/@topic.Id" title="@topic.Info">@topic.Name &nbsp; &nbsp;<span class="badge badge-primary">@topic.TopicWorks.Count</span></a></li>
+
+                      }
+                  }
+                </ul>
+                <br>
+                @Html.Action("ViewWorks", new { ViewBag.TopicId } )
+                
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <nav aria-label="Меню навигации по страницам">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li>
+                                <a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-1 clo-xs-1"></div>
+
+</div>
+

@@ -1,0 +1,53 @@
+﻿@model portfio.Models.Works
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Работа № @Model.Id
+        </div>
+        <div class="panel-body">
+            <img src="@Model.Link" style="height:400px" alt="big-picture">
+            <h1>
+                <strong>@Model.Title</strong>
+            </h1>
+            <h2>@Model.Topic.Name</h2>
+            <div class="jumbotron">
+                @Model.Info
+            </div>
+            <div class="row" id="picture-row">
+               @foreach(var photo in Model.Work_Photos)
+               { 
+               <a href="@Url.Action("ViewPicture","Home", new { id=photo.Id})" title="@photo.Info" data-toggle="modal" class="imgItem">
+                    <img src="@photo.Link" style="height: 150px;" alt="small-picture">
+                </a>
+               }
+            </div><!--окончание строки с фотографиями-->
+		<script type="text/javascript">
+			$(function () {
+				$.ajaxSetup({ cache: false });
+				$(".imgItem").click(function (e) {
+					e.preventDefault();
+					$.get(this.href, function (data)
+					{
+						$(".modal-content").html(data);
+						$("#MyModal").modal('show');
+					}
+						);
+				}
+
+				);
+
+			});
+		</script>
+			<div id="MyModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						
+					</div>
+				</div>
+			</div>
+        </div><!---окончание panel-body-->
+    </div><!---окончание panel-primary-->
+</div>

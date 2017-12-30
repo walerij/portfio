@@ -1,0 +1,62 @@
+﻿@model portfio.Models.Users
+
+<div class="row">
+	
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+		<br />
+		<div class="col-lg-4 col-md-4">	
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<i class="glyphicon glyphicon-user"></i>
+					Аутентификация пользователя
+				</div>
+				<div class="panel-body">
+					<table class="table table-hover">
+						<tr>
+							<td>Логин</td>
+							<td>
+								@Html.TextBoxFor(mlogin => Model.Login)
+								<div>
+									@Html.ValidationMessageFor(mlogin => Model.Login, "",
+														  new { @class = "text-danger" })
+						    	</div>
+
+							</td>
+						</tr>
+						<tr>
+							<td>Пароль</td>
+							<td>@Html.PasswordFor(mpassword => Model.Password)
+								<div>
+									@Html.ValidationMessageFor(mpassword => Model.Password, "",
+														   new { @class = "text-danger" })
+							   </div>
+
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit" class="btn btn-success">
+									Войти
+								</button>
+							</td>
+							<td>
+								<a class="btn btn-danger" href="/Home/Index">
+									Отмена
+								</a>
+							</td>
+						</tr>
+						
+					</table>
+					<span class="text-danger">@ViewBag.login</span>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	}
+</div>

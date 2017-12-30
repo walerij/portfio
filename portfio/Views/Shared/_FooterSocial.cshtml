@@ -1,0 +1,13 @@
+﻿@model IEnumerable<portfio.Models.SocialLinks>
+<div>
+   @foreach(var sl in Model)
+   { 
+    <a href="@Html.DisplayFor(link=>sl.Link)" title="@Html.DisplayFor(title=>sl.Title)">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-@Html.DisplayFor(pict=>sl.Img_name) fa-stack-1x"></i>
+        </span>
+    </a>
+   }
+  
+</div>

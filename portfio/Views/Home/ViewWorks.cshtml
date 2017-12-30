@@ -1,0 +1,13 @@
+﻿@model IEnumerable<portfio.Models.Works>
+
+@foreach(var work in Model) { 
+<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+    <div class="thumbnail">
+        <a href="/Home/ViewWork/@work.Id">
+            <img src="@work.Link" class="image_home" alt="picture" title="подробнее">
+        </a>
+        <h3>@work.Title</h3>
+        <p>@work.Info</p>
+    </div>
+</div>
+}

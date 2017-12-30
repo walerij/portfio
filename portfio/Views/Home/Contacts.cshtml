@@ -1,0 +1,50 @@
+﻿@model IEnumerable<portfio.Models.Contacts>
+@{
+    ViewBag.Title = "Contacts";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-4">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model=>model.Param)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model=>model.Value)
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var Cont in Model)
+                    { 
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(par=>Cont.Param)
+                        </td>
+                        <td>
+                           <strong>
+                              @Html.DisplayFor(val => Cont.Value)
+                           </strong>
+                        </td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+
+        </div>
+
+    </div>
+</div>
+
